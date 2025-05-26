@@ -1,7 +1,8 @@
-#BLACK MEAT
+# BLACK MEAT
 
 This project is a food ordering website called “BLACK MEAT.” The website allows users to browse the menu easily and place orders from various food categories. A navigation menu provides quick access to the homepage, menu, and contact sections. Each dish includes an image, a short description, a price, and an “Order Now” button. The site also supports filtering food items by categories through tab buttons.
 
+```html
 <!DOCTYPE html>
 <html lang="az">
 <head>
