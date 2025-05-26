@@ -587,3 +587,220 @@ In this section, I added cart functionality. Users can add products to the cart,
       });
     });
 ```
+ In this part we have 
+
+Drink Items (Menu)
+Each .food-item represents a drink on the menu:
+
+data-id and data-category="drinks": Used for JavaScript filtering and cart functionality.
+
+<img>: Displays the drink image.
+
+.food-info: Contains the drink name, description, and price.
+
+.add-button: A button to add the drink to the cart. Includes custom data-id, data-name, and data-price attributes for scripting.
+
+Items included:
+
+Buzlu Qəhvə – Iced coffee with milk and sweetener.
+
+Təzə Limonad – Freshly squeezed lemonade.
+
+Manqo Lassi – A traditional Indian mango yogurt drink with cardamom.
+
+📞 Contact Section
+Allows users to get in touch or find business info:
+
+#contact: Section for contact.
+
+.contact-form: Input form for name, email, phone, and message.
+
+.submit-button: Sends the form (static in this code unless connected to a backend).
+
+.contact-info: Displays address, hours, and contact details.
+
+🛒 Order Summary (Cart Sidebar)
+Displays user’s current order:
+
+#order-summary: Sticky/side panel showing the cart.
+
+.order-items: Where selected items will appear (via JavaScript).
+
+.empty-cart: Message shown when no items are in the cart.
+
+.order-total: Shows total price of items.
+
+.checkout-button: Button to complete the order (initially disabled).
+
+👣 Footer
+Site-wide footer with navigation and contact info:
+
+.footer-container: Grid layout with columns.
+
+Footer columns:
+
+BLACK MEAT: Brand and main links.
+
+Menyumuz: Menu shortcuts.
+
+Çatdırılma: Delivery info.
+
+Əlaqə: Contact info again for quick access.
+
+.copyright
+
+Simple copyright.
+
+🔔 Notification Message
+.notification: Hidden alert that appears when an item is added to the cart.
+
+Message: “Məhsul səbətinizə əlavə edildi!” ("Product added to your cart!")
+
+```html
+    <!-- Drink Item 2 -->
+          <div class="food-item" data-id="dr2" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699" alt="Buzlu Qəhvə" class="food-image">
+            <div class="food-info">
+              <h3 class="food-title">Buzlu Qəhvə</h3>
+              <p class="food-description">Soyuq dəmlənmiş qəhvə buz üzərində seçdiyiniz süd və şirinləşdirici ilə.</p>
+              <div class="food-meta">
+                <span class="food-price">₼5.90</span>
+                <button class="add-button" data-id="dr2" data-name="Buzlu Qəhvə" data-price="5.90">
+                  Sifariş Et
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drink Item 3 -->
+          <div class="food-item" data-id="dr3" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd" alt="Təzə Limonad" class="food-image">
+            <div class="food-info">
+              <h3 class="food-title">Təzə Limonad</h3>
+              <p class="food-description">Təzə sıxılmış limonlar tam uyğun şirinliklə.</p>
+              <div class="food-meta">
+                <span class="food-price">₼5.10</span>
+                <button class="add-button" data-id="dr3" data-name="Təzə Limonad" data-price="5.10">
+                  Sifariş Et
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drink Item 4 -->
+          <div class="food-item" data-id="dr4" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d" alt="Manqo Lassi" class="food-image">
+            <div class="food-info">
+              <h3 class="food-title">Manqo Lassi</h3>
+              <p class="food-description">Ənənəvi Hind yoğurt içkisi yetişmiş manqo və bir az hil ilə qarışdırılıb.</p>
+              <div class="food-meta">
+                <span class="food-price">₼7.60</span>
+                <button class="add-button" data-id="dr4" data-name="Manqo Lassi" data-price="7.60">
+                  Sifariş Et
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section" id="contact">
+        <h2 class="section-title">Əlaqə</h2>
+        <div class="contact-grid">
+          <div class="contact-form">
+            <div class="form-group">
+              <label for="name">Adınız</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-poçt</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="message">Mesajınız</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Göndər</button>
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <h3>Ünvan</h3>
+              <p>Nizami küçəsi 5, Bakı, Azərbaycan</p>
+            </div>
+            <div class="contact-item">
+              <h3>İş Saatları</h3>
+              <p>Bazar ertəsi - Cümə: 10:00 - 22:00</p>
+              <p>Şənbə - Bazar: 11:00 - 23:00</p>
+            </div>
+            <div class="contact-item">
+              <h3>Əlaqə</h3>
+              <p>Telefon: +994 12 345 67 89</p>
+              <p>E-poçt: info@blackmeat.az</p>
+           
+      </section>
+    </div>
+
+    <aside class="order-summary" id="order-summary">
+      <h2 class="order-title">Sifarişiniz</h2>
+      <div class="order-items" id="order-items">
+        <div class="empty-cart" id="empty-cart">Səbətiniz boşdur</div>
+        <!-- Order items will be added dynamically here -->
+      </div>
+      <div class="order-total">
+        <span>Cəmi:</span>
+        <span id="total-price">₼0.00</span>
+      </div>
+      <button class="checkout-button" id="checkout-button" disabled>Sifarişi Tamamla</button>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>BLACK MEAT</h3>
+        <ul>
+          <li><a href="#home">Ana Səhifə</a></li>
+          <li><a href="#menu">Menyu</a></li>
+          <li><a href="#contact">Əlaqə</a></li>
+          <li><a href="#">Haqqımızda</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Menyumuz</h3>
+        <ul>
+          <li><a href="#pizza">Pizza</a></li>
+          <li><a href="#burgers">Burgerlər</a></li>
+          <li><a href="#pasta">Makaron</a></li>
+          <li><a href="#salads">Salatlar</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Çatdırılma</h3>
+        <ul>
+          <li><a href="#">Çatdırılma Bölgələri</a></li>
+          <li><a href="#">Çatdırılma Şərtləri</a></li>
+          <li><a href="#">Sifariş İzləmə</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Əlaqə</h3>
+        <p>Nizami küçəsi 5, Bakı</p>
+        <p>+994 12 345 67 89</p>
+        <p>info@blackmeat.az</p>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Black Meat. Bütün hüquqlar qorunur.
+      </div>
+    </div>
+  </footer>
+
+  <div class="notification" id="notification">Məhsul səbətinizə əlavə edildi!</div>
+```
+
+
+
