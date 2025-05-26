@@ -165,3 +165,425 @@ This project is a food ordering website called “BLACK MEAT.” The website all
               </div>
             </div>
           </div>
+```
+
+
+
+This CSS file controls the overall look and design of the website. It uses variables to manage colors, spacing, shadows, and border-radius for easier styling updates. All elements have their margins and paddings reset to ensure a clean layout and consistent sizing.
+
+The header is sticky at the top with a centered logo and navigation menu. The main content is arranged in two columns: the menu and the order summary. Food items are displayed as cards with shadows and a hover effect for better interactivity. The order buttons are highlighted with a distinct color and are clickable. The order summary section is styled separately and also stays sticky while scrolling. Overall, this CSS provides a user-friendly and visually appealing design.
+
+```css
+:root {
+      --primary-color: #e53e3e;
+      --primary-dark: #c53030;
+      --secondary-color: #38a169;
+      --text-color: #2d3748;
+      --light-text: #718096;
+      --background: #ffffff;
+      --light-bg: #f7fafc;
+      --border-color: #e2e8f0;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --border-radius: 0.5rem;
+      --spacing-xs: 0.25rem;
+      --spacing-sm: 0.5rem;
+      --spacing-md: 1rem;
+      --spacing-lg: 1.5rem;
+      --spacing-xl: 2rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: var(--spacing-lg) 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: #fbd38d;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav li {
+      margin-left: var(--spacing-lg);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #fbd38d;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-xl);
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: var(--spacing-xl);
+    }
+
+    .menu-section {
+      background-color: var(--background);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      box-shadow: var(--card-shadow);
+      margin-bottom: var(--spacing-lg);
+      scroll-margin-top: 100px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-md);
+      padding-bottom: var(--spacing-sm);
+      border-bottom: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .food-item {
+      background-color: var(--background);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .food-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .food-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .food-info {
+      padding: var(--spacing-md);
+    }
+
+    .food-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .food-description {
+      color: var(--light-text);
+      font-size: 0.9rem;
+      margin-bottom: var(--spacing-sm);
+      height: 60px;
+      overflow: hidden;
+    }
+
+    .food-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--spacing-md);
+    }
+
+    .food-price {
+      font-weight: 700;
+      color: var(--text-color);
+      font-size: 1.1rem;
+    }
+
+    .add-button {
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: var(--spacing-xs) var(--spacing-md);
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .add-button:hover {
+      background-color: #2f855a;
+    }
+
+    .add-button:focus {
+      outline: 2px solid #2f855a;
+      outline-offset: 2px;
+    }
+
+    .order-summary {
+      background-color: var(--background);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      box-shadow: var(--card-shadow);
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .order-title {
+      font-size: 1.3rem;
+      margin-bottom: var(--spacing-md);
+      padding-bottom: var(--spacing-sm);
+      border-bottom: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .order-items {
+      margin-bottom: var(--spacing-lg);
+      max-height: 300px;
+      overflow-y: auto;
+    }
+```
+
+
+In this section, I added cart functionality. Users can add products to the cart, remove them, and change their quantity. Cart data is also stored using localStorage. Additionally, category-based filtering and a notification when a product is added to the cart have been implemented.
+
+```js
+ // Cart functionality
+    let cart = [];
+    
+    // DOM Elements
+    const orderItems = document.getElementById('order-items');
+    const emptyCart = document.getElementById('empty-cart');
+    const totalPrice = document.getElementById('total-price');
+    const cartCount = document.getElementById('cart-count');
+    const checkoutButton = document.getElementById('checkout-button');
+    const notification = document.getElementById('notification');
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const addButtons = document.querySelectorAll('.add-button');
+    
+    // Initialize
+    updateCartDisplay();
+    
+    // Add event listeners to all "Add to Order" buttons
+    addButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const name = this.getAttribute('data-name');
+        const price = parseFloat(this.getAttribute('data-price'));
+        
+        addToCart(id, name, price);
+        showNotification(`${name} səbətinizə əlavə edildi!`);
+      });
+    });
+    
+    // Category tabs functionality
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        const category = this.getAttribute('data-category');
+        filterItems(category);
+        
+        // If not "all", scroll to the section
+        if (category !== 'all') {
+          const section = document.getElementById(category);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+    
+    // Filter items based on category
+    function filterItems(category) {
+      const items = document.querySelectorAll('.food-item');
+      
+      if (category === 'all') {
+        items.forEach(item => {
+          item.closest('.food-item').classList.remove('hidden');
+        });
+        return;
+      }
+      
+      items.forEach(item => {
+        if (item.getAttribute('data-category') === category) {
+          item.closest('.food-item').classList.remove('hidden');
+        } else {
+          item.closest('.food-item').classList.add('hidden');
+        }
+      });
+    }
+    
+    // Add item to cart
+    function addToCart(id, name, price) {
+      // Check if item already exists in cart
+      const existingItem = cart.find(item => item.id === id);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id: id,
+          name: name,
+          price: price,
+          quantity: 1
+        });
+      }
+      
+      updateCartDisplay();
+    }
+    
+    // Remove item from cart
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCartDisplay();
+    }
+    
+    // Update item quantity
+    function updateQuantity(id, change) {
+      const item = cart.find(item => item.id === id);
+      
+      if (item) {
+        item.quantity += change;
+        
+        if (item.quantity <= 0) {
+          removeFromCart(id);
+        } else {
+          updateCartDisplay();
+        }
+      }
+    }
+    
+    // Update cart display
+    function updateCartDisplay() {
+      // Clear current items
+      orderItems.innerHTML = '';
+      
+      // Show empty cart message if cart is empty
+      if (cart.length === 0) {
+        orderItems.appendChild(emptyCart);
+        checkoutButton.disabled = true;
+        cartCount.textContent = '0';
+      } else {
+        emptyCart.remove();
+        checkoutButton.disabled = false;
+        
+        // Add each item to the display
+        cart.forEach(item => {
+          const orderItem = document.createElement('div');
+          orderItem.className = 'order-item';
+          
+          orderItem.innerHTML = `
+            <div class="item-name">
+              <span class="item-quantity">${item.quantity}</span>
+              ${item.name}
+            </div>
+            <div class="item-controls">
+              <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+              <button class="quantity-btn increase" data-id="${item.id}">+</button>
+              <span class="item-price">₼${(item.price * item.quantity).toFixed(2)}</span>
+              <button class="remove-item" data-id="${item.id}">×</button>
+            </div>
+          `;
+          
+          orderItems.appendChild(orderItem);
+        });
+        
+        // Add event listeners to the new buttons
+        document.querySelectorAll('.decrease').forEach(btn => {
+          btn.addEventListener('click', function() {
+            updateQuantity(this.getAttribute('data-id'), -1);
+          });
+        });
+        
+        document.querySelectorAll('.increase').forEach(btn => {
+          btn.addEventListener('click', function() {
+            updateQuantity(this.getAttribute('data-id'), 1);
+          });
+        });
+        
+        document.querySelectorAll('.remove-item').forEach(btn => {
+          btn.addEventListener('click', function() {
+            removeFromCart(this.getAttribute('data-id'));
+          });
+        });
+        
+        // Update cart count
+        cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+      }
+      
+      // Update total price
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      totalPrice.textContent = `₼${total.toFixed(2)}`;
+      
+      // Save cart to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    
+    // Show notification
+    function showNotification(message) {
+      notification.textContent = message;
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+    
+    // Load cart from localStorage on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedCart = localStorage.getItem('cart');
+      
+      if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartDisplay();
+      }
+      
+      // Checkout button functionality
+      checkoutButton.addEventListener('click', function() {
+        alert('Sifarişiniz üçün təşəkkür edirik! Cəmi: ' + totalPrice.textContent);
+        cart = [];
+        updateCartDisplay();
+      });
+    });
+```
