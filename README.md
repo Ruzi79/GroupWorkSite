@@ -801,6 +801,272 @@ Message: “Məhsul səbətinizə əlavə edildi!” ("Product added to your car
 
   <div class="notification" id="notification">Məhsul səbətinizə əlavə edildi!</div>
 ```
+in this part we have 
+ 1. Order Section Styles (.order-item, .item-name, .item-quantity, .item-controls)
+.order-item: Styles each item in the order/cart; lays out the item and its controls side by side with spacing and a bottom border.
 
+.item-name: Contains the item name; aligned with the quantity indicator; flexible width.
 
+.item-quantity: A small circular badge showing the quantity of the item, with white text on a primary-colored background.
 
+.item-controls: Wraps buttons used to increase/decrease quantity or remove the item.
+
+ 2. Quantity Button Styles (.quantity-btn, .remove-item)
+.quantity-btn: Circular +/– buttons used to change item quantity; styled with border and hover effect.
+
+.remove-item: A text button to remove an item from the cart; turns darker on hover.
+
+ 3. Order Summary Total and Checkout (.order-total, .checkout-button)
+.order-total: Displays the total cost; spaced and bold.
+
+.checkout-button: Full-width button to place the order; styled with primary color, hover and focus effects.
+
+ 4. Category Tabs (.category-tabs, .category-tab, .category-tab.active)
+.category-tabs: A horizontal scrollable container for category filters; sticky on top while scrolling.
+
+.category-tab: Each tab button to filter menu items; styled with padding, borders, and hover effect.
+
+.category-tab.active: Highlights the currently selected tab.
+
+ 5. Empty Cart Message
+.empty-cart: Displays a centered message when the cart is empty with light-colored text.
+
+ 6. Badge and Cart Icon Counter (.badge, .cart-count, .cart-icon)
+.badge: A small label (e.g., "New", "Hot") with a colored background.
+
+.cart-count: A circular counter shown over the cart icon, indicating number of items.
+
+.cart-icon: The icon container that holds the cart-count badge.
+
+ 7. Hero Section (.hero, .hero h1, .hero p, .hero-button)
+.hero: The top "home" section with a background image and dark overlay, centered text, and padding.
+
+.hero h1: Large heading text.
+
+.hero p: Descriptive paragraph below the heading, centered.
+
+.hero-button: Call-to-action button with hover effect.
+
+ 8. Features Section
+.features: A responsive grid layout to display site features, such as fast delivery, fresh ingredients, etc., in columns.
+
+```css
+
+.order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .item-name {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      margin-right: var(--spacing-sm);
+    }
+
+    .item-quantity {
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-right: var(--spacing-sm);
+      flex-shrink: 0;
+    }
+
+    .item-controls {
+      display: flex;
+      align-items: center;
+    }
+
+    .quantity-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0 var(--spacing-xs);
+    }
+
+    .quantity-btn:hover {
+      background-color: var(--light-bg);
+    }
+
+    .remove-item {
+      color: var(--primary-color);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-left: var(--spacing-sm);
+    }
+
+    .remove-item:hover {
+      color: var(--primary-dark);
+    }
+
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      border-top: 2px solid var(--border-color);
+    }
+
+    .checkout-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: var(--spacing-lg);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .checkout-button:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .checkout-button:focus {
+      outline: 2px solid var(--primary-dark);
+      outline-offset: 2px;
+    }
+
+    .category-tabs {
+      display: flex;
+      overflow-x: auto;
+      margin-bottom: var(--spacing-lg);
+      padding-bottom: var(--spacing-xs);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 80px;
+      background-color: var(--light-bg);
+      z-index: 90;
+      padding-top: var(--spacing-md);
+    }
+
+    .category-tab {
+      padding: var(--spacing-sm) var(--spacing-md);
+      margin-right: var(--spacing-sm);
+      background-color: var(--light-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .category-tab.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    .category-tab:hover:not(.active) {
+      background-color: #edf2f7;
+    }
+
+    .empty-cart {
+      text-align: center;
+      color: var(--light-text);
+      padding: var(--spacing-lg) 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25em 0.5em;
+      font-size: 0.75em;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 0.25rem;
+      background-color: #f6ad55;
+      color: #744210;
+      margin-left: var(--spacing-sm);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+
+    .cart-icon {
+      position: relative;
+      margin-left: var(--spacing-lg);
+    }
+
+    /* Home Section Styles */
+    .hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto var(--spacing-lg);
+    }
+
+    .hero-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-radius: var(--border-radius);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .hero-button:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+    }
+```
