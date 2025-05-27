@@ -1283,23 +1283,39 @@
         <h2 class="section-title">Əlaqə</h2>
         <div class="contact-grid">
           <div class="contact-form">
-            <div class="form-group">
-              <label for="name">Adınız</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">E-poçt</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Telefon</label>
-              <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-              <label for="message">Mesajınız</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="submit-button">Göndər</button>
+            <form>
+              <div class="form-group">
+                <label for="name">Adınız</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-poçt</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+                  title="Yalnız gmail ünvanları qəbul olunur, məsələn: example@gmail.com"
+                >
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="^\+994\s\(\d{3}\)-\d{3}-\d{2}-\d{2}$"
+                  title="Telefon nömrəsi +994 (xxx)-xxx-xx-xx formatında olmalıdır, məsələn: +994 (050)-123-45-67"
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="submit-button">Göndər</button>
+            </form>
           </div>
           <div class="contact-info">
             <div class="contact-item">
@@ -1315,9 +1331,11 @@
               <h3>Əlaqə</h3>
               <p>Telefon: +994 12 345 67 89</p>
               <p>E-poçt: info@blackmeat.az</p>
-           
+            </div>
+          </div>
+        </div>
       </section>
-    </div>
+      
 
     <aside class="order-summary" id="order-summary">
       <h2 class="order-title">Sifarişiniz</h2>
