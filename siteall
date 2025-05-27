@@ -521,12 +521,7 @@
       color: var(--primary-color);
     }
 
-    .map {
-      width: 100%;
-      height: 200px;
-      border-radius: var(--border-radius);
-      border: none;
-    }
+    
 
     /* Accessibility */
     .sr-only {
